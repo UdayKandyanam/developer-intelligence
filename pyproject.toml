@@ -1,0 +1,28 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "developer-intelligence"
+version = "0.1.0"
+description = "Event-driven pipeline that ingests GitHub webhooks and serves a small read API about services and their recent activity."
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "MIT" }
+dependencies = [
+    "fastapi>=0.110",
+    "uvicorn>=0.29",
+    "pydantic>=2.6",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0",
+    "httpx>=0.27",
+]
+
+[tool.setuptools.packages.find]
+include = ["developer_intelligence*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
